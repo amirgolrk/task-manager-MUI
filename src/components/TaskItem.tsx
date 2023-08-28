@@ -9,6 +9,11 @@ import { doneTask, getTasks } from "../Features/todoSlice";
 import { useAppDispatch } from "../reduxHook";
 import { useNavigate } from "react-router";
 import toaster from "../helpers/toaster";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
+import ClearIcon from "@mui/icons-material/Clear";
+import Typography from "@mui/material/Typography";
+import { Checkbox } from "@mui/material";
 
 interface tasksType {
   title: string;
@@ -24,9 +29,9 @@ interface tasksType {
 
 const TaskItem = (props: tasksType) => {
   const [toggle, setToggle] = useState(props.done);
-  useEffect(() =>{
-    setToggle(props.done)
-  },[props.done])
+  useEffect(() => {
+    setToggle(props.done);
+  }, [props.done]);
   const dispatch = useAppDispatch();
   //const tasksId = useAppSelector((state) => state.todo.tasks.id);
   const navigateTo = useNavigate();
@@ -34,10 +39,10 @@ const TaskItem = (props: tasksType) => {
   //const headers = { Authorization: `Bearer ${token}`}
   const toggleHandler = async () => {
     try {
- dispatch(doneTask(props));
- setToggle((prevToggle: any) => !prevToggle);
+      dispatch(doneTask(props));
+      setToggle((prevToggle: any) => !prevToggle);
       //alert("Task done status edited successfully");
- dispatch(
+      dispatch(
         getTasks({
           onSuccess: () => {},
           onFail: () => {
@@ -53,7 +58,7 @@ const TaskItem = (props: tasksType) => {
       toaster(error, "error", 3000);
     }
   };
-  const deleteHandler = async() => {
+  const deleteHandler = async () => {
     //props?.setLoading(true)
     if (
       (String(props.userId) as string) !==
@@ -61,7 +66,7 @@ const TaskItem = (props: tasksType) => {
     ) {
       alert("this task is not for you");
     }
-     props.onDeleteItem(props.id);
+    props.onDeleteItem(props.id);
 
     //dispatch(deleteTask(tasksId));
     dispatch(
@@ -75,64 +80,45 @@ const TaskItem = (props: tasksType) => {
   };
   return (
     <>
-      <div id={`props.id`} className="card rounded-5 shadow mt-4">
-        <div className="card body rounded-4">
-          <div className="text-right pe-3 pt-2">
-            <button
-              type="button"
-              className="btn-close float-end"
-              aria-label="Close"
-              onClick={deleteHandler}
-            ></button>
-          </div>
-          <div className="row mt-2 ms-2">
-            <div className="clearfix">
-              <div className="float-start">
-                {!toggle ? (
-                  <span className="card-title tasktitle">{props.title}</span>
-                ) : (
-                  <s className="card-title tasktitle">{props.title}</s>
-                )}
-                <p className="lead tasklead">{props.description}</p>
-              </div>
-              <div className="float-end pe-4 pt-3">
-                <div className="form-check">
-                  <input
-                    type="checkbox"
-                    className="form-check-input rounded-circle"
-                    style={{ transform: "scale(1.5)" }}
-                    id={`check${props.id}`}
-                    name={`option${props.id}`}
-                    //value={Math.floor(Math.random() * 1000)}
-                    checked={toggle}
-                    onChange={
-                      toggleHandler
-                      /*() => {
-                      setToggle(!toggle);*/
-                    }
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <hr />
-          <div className="row">
-            <div className="col-sm-9 ps-5">
-              {/*<p className="lead taskdate">{new Date(date * 1000).toLocaleString()}</p>*/}
-              <TimeDisplay unixTime={props.date} />
-            </div>
-            <div className="col-sm-3">
-              <img
-                src="#"
-                className="float-end me-4 pb-2"
-                width="50%"
-                height="40px"
-                alt="people"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+      <Grid
+        container
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        xs={12}
+        id={`props.id`}
+      >
+        <Grid justifyContent="flex-end" direction="row" item>
+          <Button aria-label="Close" onClick={deleteHandler}>
+            <ClearIcon />
+          </Button>
+        </Grid>
+
+        <Grid direction="row" item>
+          {!toggle ? (
+            <Typography component="span">{props.title}</Typography>
+          ) : (
+            <Typography component="s">{props.title}</Typography>
+          )}
+
+          <Typography component="p">{props.description}</Typography>
+
+          <Checkbox
+            sx={{ transform: "scale(1.5)" }}
+            id={`check${props.id}`}
+            name={`option${props.id}`}
+            checked={toggle}
+            onChange={toggleHandler}
+          />
+        </Grid>
+
+        <hr />
+
+        <Grid item>
+          <TimeDisplay unixTime={props.date} />
+          <img src="#" width="50%" height="40px" alt="people" />
+        </Grid>
+      </Grid>
     </>
   );
 };

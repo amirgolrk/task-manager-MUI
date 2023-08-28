@@ -1,110 +1,119 @@
+import React, { useState, useEffect } from "react";
 import { Outlet, Link, useNavigate } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import { HiHome } from "react-icons/hi";
 import { RiLoginCircleLine } from "react-icons/ri";
 import { FaUserPlus } from "react-icons/fa";
-//import React from 'react';
-import { useState,useEffect } from "react";
+import Container from "@mui/material/Container";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
+import Tooltip from "@mui/material/Tooltip";
 import LogOutModal from "../modals/LogOutModal";
+
 const Layout = () => {
-  const [logOutModalOpen,setLogOutModalOpen] = useState(false)
+  const [logOutModalOpen, setLogOutModalOpen] = useState(false);
   const userEmail = localStorage.getItem("email");
-  const navigateTo = useNavigate()
-  useEffect(()=>{
-    //window.location.pathname === "/" checks that if we enter the routes manually it doesnt auto navigate to the todos and it only navigates to todos if the url is empty of routes (or the default route) . 
-    if(userEmail && window.location.pathname === "/"){
-      navigateTo("")
+  const navigateTo = useNavigate();
+
+  useEffect(() => {
+    if (userEmail && window.location.pathname === "/") {
+      navigateTo("");
     }
-  },[navigateTo,userEmail])
+  }, [navigateTo, userEmail]);
 
   return (
     <>
-      <LogOutModal logOutModalOpen={logOutModalOpen} setLogOutModalOpen={setLogOutModalOpen} />
-      <div className="container-fluid">
-        {/* Navigation */}
-        <nav
-          className="navbar navbar-expand-lg static-top rounded-bottom-4"
-          style={{ backgroundColor: "#E2EBFA" }}
+      <LogOutModal
+        logOutModalOpen={logOutModalOpen}
+        setLogOutModalOpen={setLogOutModalOpen}
+      />
+      <Container maxWidth="xl">
+        <AppBar
+          position="absolute"
+          sx={{
+            backgroundColor: "#E2EBFA",
+            borderBottomRightRadius: "20px",
+            borderBottomLeftRadius: "20px",
+          }}
         >
-          <div className="container">
+          <Toolbar>
             {userEmail ? (
-              <h3 className="navbar-brand">
+              <Typography variant="h5" color={"black"} sx={{ flexGrow: 1 }}>
                 Welcome {userEmail}
-              </h3>
+              </Typography>
             ) : (
-              <h3>you are not logged in</h3>
+              <Typography variant="h5" color={"black"} sx={{ flexGrow: 1 }}>
+                You are not logged in
+              </Typography>
             )}
-            <div>
-              <ul className="navbar-nav ms-auto">
-                <li className="nav-item">
-                  <Link
-                    title="go to signUp page"
-                    className="nav-link"
-                    aria-current="page"
-                    to="signUp"
-                  >
-                    <HiHome
-                      style={{
-                        color: "blue",
-                        fontSize: "25px",
-                        cursor: "pointer",
-                        marginLeft: "5px",
-                      }}
-                    />
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link title="Sign up to App" className="nav-link" to="signUp">
-                    <FaUserPlus
-                      style={{
-                        color: "mediumvioletred",
-                        fontSize: "25px",
-                        cursor: "pointer",
-                        marginLeft: "5px",
-                      }}
-                    />
-                  </Link>
-                </li>
-                {!userEmail && (
-                  <li className="nav-item">
-                    <Link title="Log into App" className="nav-link" to="login">
-                      <RiLoginCircleLine
-                        style={{
-                          color: "green",
-                          fontSize: "25px",
-                          cursor: "pointer",
-                          marginLeft: "5px",
-                        }}
-                      />
-                    </Link>
-                  </li>
-                )}
-                {userEmail && (
-                  <li
-                    title="logOut from the app"
-                    className="nav-item nav-link  text-danger"
-                    onClick={() => {
-                      setLogOutModalOpen(true)//setLogOutOpen(true);
+            <IconButton>
+              <Tooltip title="Go to Home">
+                <Link  aria-current="page" to="signUp">
+                  <HiHome
+                    style={{
+                      color: "blue",
+                      fontSize: "25px",
+                      cursor: "pointer",
+                      marginLeft: "5px",
                     }}
-                    style={{ cursor: "pointer" }}
-                  >
-                    <RiLogoutCircleLine
+                  />
+                </Link>
+              </Tooltip>
+            </IconButton>
+            <IconButton>
+              <Tooltip title="Sign up to App">
+                <Link  to="signUp">
+                  <FaUserPlus
+                    style={{
+                      color: "mediumvioletred",
+                      fontSize: "25px",
+                      cursor: "pointer",
+                      marginLeft: "5px",
+                    }}
+                  />
+                </Link>
+              </Tooltip>
+            </IconButton>
+            {!userEmail && (
+              <IconButton>
+                <Tooltip title="Log into App">
+                  <Link  to="login">
+                    <RiLoginCircleLine
                       style={{
-                        color: "red",
+                        color: "green",
                         fontSize: "25px",
                         cursor: "pointer",
                         marginLeft: "5px",
                       }}
                     />
-                  </li>
-                )}
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </div>
-
+                  </Link>
+                </Tooltip>
+              </IconButton>
+            )}
+            {userEmail && (
+              <Tooltip title="Log out from the app">
+              <IconButton
+                onClick={() => {
+                  setLogOutModalOpen(true);
+                }}
+                style={{ cursor: "pointer" }}
+              >
+                  <RiLogoutCircleLine
+                    style={{
+                      color: "red",
+                      fontSize: "25px",
+                      cursor: "pointer",
+                      marginLeft: "5px",
+                    }}
+                  />
+              </IconButton>
+                </Tooltip>
+            )}
+          </Toolbar>
+        </AppBar>
+      </Container>
       <Outlet />
     </>
   );
