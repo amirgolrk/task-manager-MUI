@@ -13,7 +13,9 @@ import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import ClearIcon from "@mui/icons-material/Clear";
 import Typography from "@mui/material/Typography";
-import { Checkbox } from "@mui/material";
+import  {Checkbox}  from "@mui/material";
+import Divider from '@mui/material/Divider';
+
 
 interface tasksType {
   title: string;
@@ -87,36 +89,47 @@ const TaskItem = (props: tasksType) => {
         alignItems="center"
         xs={12}
         id={`props.id`}
+        sx={{boxShadow: '0px 4px 6px silver',backgroundColor:"yellowgreen", margin: "10px auto",borderRadius : "10px"}}
+        spacing={0.5}
+        mb={3}
+        pl={2}
       >
-        <Grid justifyContent="flex-end" direction="row" item>
-          <Button aria-label="Close" onClick={deleteHandler}>
-            <ClearIcon />
+        <Grid container justifyContent="flex-end" direction="row" item>
+          <Button color="error" aria-label="Close" onClick={deleteHandler}>
+            <ClearIcon sx={{fontSize:"30px"}} />
           </Button>
         </Grid>
 
-        <Grid direction="row" item>
-          {!toggle ? (
-            <Typography component="span">{props.title}</Typography>
-          ) : (
-            <Typography component="s">{props.title}</Typography>
-          )}
-
-          <Typography component="p">{props.description}</Typography>
-
-          <Checkbox
-            sx={{ transform: "scale(1.5)" }}
-            id={`check${props.id}`}
-            name={`option${props.id}`}
-            checked={toggle}
-            onChange={toggleHandler}
-          />
+        <Grid container item direction="row" justifyContent="space-between" alignItems="baseline">
+          <Grid item>
+            {" "}
+            {!toggle ? (
+              <Typography variant="h5" style={{fontWeight:"bold"}}>{props.title}</Typography>
+            ) : (
+              <Typography component="s" style={{fontSize : "24px" , fontWeight:"bold"}}>{props.title}</Typography>
+            )}
+            <Typography component="p">{props.description}</Typography>
+          </Grid>
+          <Grid item>
+            {" "}
+            <Checkbox
+              //sx={{ transform: "scale(1.25)" ,borderRadius: '50%'}}
+              style={{marginRight : "15px", transform: "scale(1.25)" ,borderRadius: '50%'}}
+              id={`check${props.id}`}
+              name={`option${props.id}`}
+              checked={toggle}
+              onChange={toggleHandler}
+            />
+          </Grid>
         </Grid>
-
-        <hr />
-
-        <Grid item>
-          <TimeDisplay unixTime={props.date} />
-          <img src="#" width="50%" height="40px" alt="people" />
+              <Divider/>
+        <Grid container item direction="row" justifyContent="space-between" alignItems="baseline">
+          <Grid item>
+            <TimeDisplay unixTime={props.date} />
+          </Grid>
+          <Grid item>
+            <img src="#" width="50%" height="40px" alt="people" />
+          </Grid>
         </Grid>
       </Grid>
     </>

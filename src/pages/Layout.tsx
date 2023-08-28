@@ -40,11 +40,11 @@ const Layout = () => {
         >
           <Toolbar>
             {userEmail ? (
-              <Typography variant="h5" color={"black"} sx={{ flexGrow: 1 }}>
+              <Typography variant="h5" fontWeight="50px" color={"black"} sx={{ flexGrow: 1 }} style={{fontWeight : "bold"}}>
                 Welcome {userEmail}
               </Typography>
             ) : (
-              <Typography variant="h5" color={"black"} sx={{ flexGrow: 1 }}>
+              <Typography variant="h5"  color={"black"} sx={{ flexGrow: 1 }} style={{fontWeight : "bold"}}>
                 You are not logged in
               </Typography>
             )}
