@@ -31,7 +31,7 @@ const Layout = () => {
       />
       <Container maxWidth="xl">
         <AppBar
-          position="absolute"
+          position="fixed"
           sx={{
             backgroundColor: "#E2EBFA",
             borderBottomRightRadius: "20px",
@@ -115,7 +115,7 @@ const Layout = () => {
         </AppBar>
       </Container>
       <Outlet />
-    </>
+                  </>
   );
 };
 

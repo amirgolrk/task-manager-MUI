@@ -89,7 +89,7 @@ const TaskItem = (props: tasksType) => {
         alignItems="center"
         xs={12}
         id={`props.id`}
-        sx={{boxShadow: '0px 4px 6px silver',backgroundColor:"yellowgreen", margin: "10px auto",borderRadius : "10px"}}
+        sx={{boxShadow: '0px 0px 6px silver', margin: "10px auto",borderRadius : "20px"}}
         spacing={0.5}
         mb={3}
         pl={2}
