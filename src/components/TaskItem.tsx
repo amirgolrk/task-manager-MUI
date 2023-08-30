@@ -122,7 +122,7 @@ const TaskItem = (props: tasksType) => {
             />
           </Grid>
         </Grid>
-              <Divider/>
+              <Divider sx={{zIndex : "1000"}}/>
         <Grid container item direction="row" justifyContent="space-between" alignItems="baseline">
           <Grid item>
             <TimeDisplay unixTime={props.date} />
