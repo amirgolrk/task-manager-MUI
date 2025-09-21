@@ -1,6 +1,6 @@
 # Task Manager
 
-a task Manager using vite + react 
+a task Manager using vite + react + simple backend
 
 ## details 
 
