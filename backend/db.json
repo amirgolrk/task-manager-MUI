@@ -1,0 +1,168 @@
+{
+  "users": [
+    {
+      "email": "test@test.com",
+      "password": "$2a$10$o8pOIv3k7QI3M1FXaqua8OVRmrPA1CdO/LvcdtWB/DSU.LgfDuBZK",
+      "id": 1
+    },
+    {
+      "email": "havij@havijPolo.com",
+      "password": "$2a$10$tf5Kczf1iWJyftIluvT4ReoSX6.loAPkTP9hEZzLxg0JqBK.wauCS",
+      "id": 2
+    },
+    {
+      "email": "abgoosht@abgoosht.com",
+      "password": "$2a$10$k9mSi.faCqBkUvQe4LFaW.xd0b971S6h2K0wRR3wpHkZ.V1cye8iG",
+      "id": 3
+    },
+    {
+      "email": "jasoosmajazi@gmail.com",
+      "password": "$2a$10$rnNQi83D3BU3GHoF4bTEk.L0hOMjZu76P4DKMfa.jvB86iKk0j9MS",
+      "id": 4
+    },
+    {
+      "email": "ab@ab.com",
+      "password": "$2a$10$5x3d3dkze90wt7XtCF1SpOzlzuqzAESfm8uCv5SzeVafvvh2kytQu",
+      "id": 5
+    },
+    {
+      "email": "ad@ad.com",
+      "password": "$2a$10$OAsu6GZuCiszdSKzsXHAuee7PjWrFNLYOE7nJOZT6.RWWN785raN.",
+      "id": 6
+    },
+    {
+      "email": "ae@ae.com",
+      "password": "$2a$10$mOtmBtTw4Nor3TVORdWV..6qd.BsTNwi0IJUO7hWLYA/GONUrWsq6",
+      "id": 7
+    },
+    {
+      "email": "af@af.com",
+      "password": "$2a$10$7ta7HRR9/elHtJq9sJnTwe1ywLJWTjEEtcyEtDO4KfPD2HhORZSQi",
+      "id": 8
+    },
+    {
+      "email": "ax@ax.com",
+      "password": "$2a$10$vWp5GpkR40Pqp4iDg.0Yg.Qe.QgntrFf.EO0uNDF2RYhWNWrTTWE2",
+      "id": 9
+    },
+    {
+      "email": "bb@bb.com",
+      "password": "$2a$10$XmhC/0MPLyRJrTfGPu70Uu6eI2xC8Z.IupR09reptq35xkKv33nXW",
+      "id": 10
+    },
+    {
+      "email": "cc@cc.com",
+      "password": "$2a$10$VV/KK4HmuxDqL4I/JPEoaOilLylUbWy87Cr5v2Lt.Ys8t/tpvDyjK",
+      "id": 11
+    },
+    {
+      "email": "new@new.com",
+      "password": "$2a$10$cdPTz9Nv/jk2pcWUHIOJTOb3Y9HlvEQzK.aUI5r9YtEe/O5RUJV4O",
+      "id": 12
+    },
+    {
+      "email": "mn@mn.com",
+      "password": "$2a$10$KyDxmIml5TLqJQ.IQRSugOrDDf6zqQHtsGye6x6wuHY7Uh5uf2nga",
+      "id": 13
+    },
+    {
+      "email": "xx@xx.com",
+      "password": "$2a$10$5n3XWQB1BD0GpQABGRUBbO0zerXet65qdHw0nIE7JVq0jBt9l3LI2",
+      "id": 14
+    },
+    {
+      "email": "xxx@xxx.com",
+      "password": "$2a$10$tFdeJV0k3CHrwn43d3WIwewf9smHz.EnXIiQEGFBmrjS2XR01yy6.",
+      "id": 15
+    },
+    {
+      "email": "xxxx@xxxx.com",
+      "password": "$2a$10$4zVyc2Ot93SsgMoq49Tk6Os16g78hqmUzXcXfEkDMjUeB4chSmHUa",
+      "id": 16
+    },
+    {
+      "email": "lala@gmail.com",
+      "password": "$2a$10$20kirohFvckfHzzLN.Mak.n2.JkOcVzIRXjiehXAIdNJhqUMNBEkO",
+      "id": 17
+    }
+  ],
+  "todos": [
+    {
+      "userId": 1,
+      "title": "todo4",
+      "description": "todo4",
+      "date": 1689184015,
+      "done": true,
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "title": "todo5",
+      "description": "todo5",
+      "date": 1689184015,
+      "done": true,
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "title": "todo6",
+      "description": "todo6",
+      "date": 1689236477,
+      "done": true,
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "title": "todo7",
+      "description": "todo7",
+      "date": "1689236477",
+      "done": false,
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "owner": 1,
+      "title": "test 4",
+      "description": "qwerty",
+      "date": 1690848000000,
+      "done": false,
+      "id": 10
+    },
+    {
+      "userId": 1,
+      "owner": 1,
+      "title": "dffnffgng",
+      "description": "jhljliuluil",
+      "date": 1693180800000,
+      "done": false,
+      "id": 11
+    },
+    {
+      "userId": 17,
+      "owner": 17,
+      "title": "sdgg",
+      "description": "sfe",
+      "date": 1757203200000,
+      "done": false,
+      "id": 13
+    },
+    {
+      "userId": 17,
+      "owner": 17,
+      "title": "new task",
+      "description": "ssfsfsfs",
+      "date": 1758931200000,
+      "done": false,
+      "id": 14
+    },
+    {
+      "userId": 1,
+      "owner": 1,
+      "title": "hgcgfc",
+      "description": "vhgcy",
+      "date": 1759536000000,
+      "done": true,
+      "id": 15
+    }
+  ]
+}

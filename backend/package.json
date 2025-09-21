@@ -1,0 +1,16 @@
+{
+  "name": "step5-mock-server",
+  "version": "1.0.0",
+  "description": "have basic login and task for each user",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"json-server -p 4000 --watch db.json -m ./node_modules/json-server-auth -r routes.json"
+  },
+  "author": "sepehr",
+  "license": "ISC",
+  "devDependencies": {
+    "json-server": "^0.17.3",
+    "json-server-auth": "^2.1.0"
+  }
+}
