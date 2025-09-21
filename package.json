@@ -14,7 +14,6 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.6",
     "@mui/material": "^5.14.6",
-    "@mui/styles": "^5.14.6",
     "@reduxjs/toolkit": "^1.9.5",
     "@types/toastify-js": "^1.12.0",
     "axios": "^1.4.0",
@@ -38,9 +37,8 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
-    "node-sass": "^9.0.0",
     "react-router-dom": "^6.14.2",
-    "sass": "^1.64.2",
+    "sass": "^1.92.1",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
   }
